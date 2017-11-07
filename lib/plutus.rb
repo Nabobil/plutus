@@ -4,6 +4,10 @@ require "rails"
 module Plutus
   class Engine < Rails::Engine
     isolate_namespace Plutus
+
+    config.before_initialize do
+      config.i18n.load_path += Dir["#{config.root}/config/locales/*.yml"]
+    end
   end
 
 

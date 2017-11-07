@@ -1,21 +1,21 @@
 <div class="container">
   <center>
-    <h1>Balance Sheet</h1>
+    <h1><%= t('.title') %></h1>
 
     <%= form_tag({:action => 'balance_sheet'}, {:method => :get, :class => 'form-inline'}) do%>
       <div class="form-group">
       <%= label_tag :date, nil, class: 'sr-only'%>
       <%= text_field_tag :date, @to_date, :class => 'datepicker form-control' %>
       </div>
-      <button type="submit" class="btn btn-default">Get Report</button>
+      <button type="submit" class="btn btn-default"><%= t('.get_report') %></button>
     <% end %>
   </center>
 
   <br>
 
-  <%= render 'account', :name => "Assets", :accounts => @assets %>
-  <%= render 'account', :name => "Liabilities", :accounts => @liabilities %>
-  <%= render 'account', :name => "Equity", :accounts => @equity %>
+  <%= render 'account', :name => Plutus::Asset.model_name.human(count: 2), :accounts => @assets %>
+  <%= render 'account', :name => Plutus::Liability.model_name.human(count: 2), :accounts => @liabilities %>
+  <%= render 'account', :name => Plutus::Equity.model_name.human(count: 2), :accounts => @equity %>
 
 
 </div>

@@ -1,23 +1,23 @@
 <div class="container">
   <center>
-    <h1>Journal</h1>
+    <h1><%= t('.title') %></h1>
     <br>
     <%= form_tag({:action => 'index'}, {:method => :get, :class => 'form-inline'}) do%>
       <div class="form-group">
-      Per page: <%= select_tag :limit, options_for_select([25, 100, 200, 300], selected: params[:limit]), class: 'form-control' %>
-      Order: <%= select_tag :order, options_for_select(['descending', 'ascending'], selected: params[:order]), class: 'form-control' %>
+      <%= t('.per_page') %>: <%= select_tag :limit, options_for_select([25, 100, 200, 300], selected: params[:limit]), class: 'form-control' %>
+      <%= t('.order') %>: <%= select_tag :order, options_for_select(['descending', 'ascending'], selected: params[:order]), class: 'form-control' %>
       </div>
-      <button type="submit" class="btn btn-default">Refresh</button>
+      <button type="submit" class="btn btn-default"><%= t('.refresh') %></button>
     <% end %>
   </center>
 
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Description</th>
-      <th>Debits</th>
-      <th>Credits</th>
-      <th>Date</th>
+      <th><%= Plutus::Entry.human_attribute_name(:description) %></th>
+      <th><%= Plutus::Entry.human_attribute_name(:debit_amounts) %></th>
+      <th><%= Plutus::Entry.human_attribute_name(:credit_amounts) %></th>
+      <th><%= Plutus::Entry.human_attribute_name(:date) %></th>
     </tr>
   </thead>
   <tbody>

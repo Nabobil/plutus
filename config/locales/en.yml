@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    attributes:
+      plutus/account:
+        credits_balance: Credit Balance
+        debits_balance: Debit Balance
+      plutus/entry:
+        debit_amounts: Debits
+        credit_amounts: Credits
+  plutus:
+    accounts:
+      index:
+        title: General Ledger
+    entries:
+      index:
+        title: Journal
+        per_page: Per page
+        order: Order
+        refresh: Refresh
+        descending: descending
+        ascending: ascending
+    reports:
+      balance_sheet:
+        title: Balance Sheet
+        get_report: Get Report
+      income_statement:
+        title: Income Statement
+        get_report: Get Report

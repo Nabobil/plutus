@@ -1,6 +1,6 @@
 <div class="container">
   <center>
-    <h1>Income Statement</h1>
+    <h1><%= t('.title') %></h1>
 
     <%= form_tag({:action => 'income_statement'}, {:method => :get, :class => 'form-inline'}) do%>
       <div class="form-group">
@@ -11,14 +11,14 @@
       <%= label_tag :to_date, nil, class: 'sr-only'%>
       <%= text_field_tag :to_date, @to_date, :class => 'datepicker form-control', :placeholder => "Date" %>
       </div>
-      <button type="submit" class="btn btn-default">Get Report</button>
+      <button type="submit" class="btn btn-default"><%= t('.get_report') %></button>
     <% end %>
   </center>
 
   <br>
 
-  <%= render 'account', :name => "Revenues", :accounts => @revenues %>
-  <%= render 'account', :name => "Expenses", :accounts => @expenses %>
+  <%= render 'account', :name => Plutus::Revenue.model_name.human(count: 2), :accounts => @revenues %>
+  <%= render 'account', :name => Plutus::Expense.model_name.human(count: 2), :accounts => @expenses %>
 
 
 </div>
